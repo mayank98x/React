@@ -10,11 +10,18 @@ const Home = () => {
         {title:'welocome party website' , body: ' lorem asdasd' , author: 'nikita' , id: 2},
         {title:'dev tools' , body: ' lorem asdasd' , author: 'mayank' , id: 3}
     ])
+    
+     const setDelete = (id) => {
+        console.log("Id is working",id);
+        const newBlogs = blogs.filter(blog => blog.id !== id);
+        setBlogs(newBlogs)
+    }
+
     return ( 
         <div className="home">
             
-           <BlogList blogs={blogs} title="All Blogs!"/>
-           <BlogList blogs={blogs.filter((blog) => blog.author === 'mayank') } title="Mayanks All The Blogs!"/>
+           <BlogList blogs={blogs} title="All Blogs!" setDelete={setDelete}/>
+           {/* <BlogList blogs={blogs.filter((blog) => blog.author === 'mayank') } title="Mayanks All The Blogs!"/> */}
          </div>
      );
 }
